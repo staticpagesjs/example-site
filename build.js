@@ -47,7 +47,7 @@ const urlFromContext = context => {
 		?? page?.header?.path?.replace?.(/\.[^.]+$/g, '.html');
 };
 
-// usually this should be at the from.module section of the config
+// usually this should be at the 'from' section of the config
 // we moved it here to preprocess (navigation) data before the rendering starts
 const pages = [...markdownReader({})];
 

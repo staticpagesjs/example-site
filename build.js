@@ -24,11 +24,11 @@ const { markdownReader } = require('@static-pages/markdown-reader');
 const { twigWriter } = require('@static-pages/twig-writer');
 
 // git utility to add git commit hash and working dir to build globals
-const git = (...args) => childProcess.spawnSync('git', args)?.stdout?.toString?.()?.trim?.() ?? '';
+const git = (...args) => childProcess.spawnSync('git', args)?.stdout?.toString?.().trim() ?? '';
 const getGitCommitHash = () => git('rev-parse', 'HEAD');
 const getGitBaseDir = () => git('rev-parse', '--show-toplevel');
-const isGitInstalled = git('--help').trim().startsWith('usage:');
-const isGitProject = !getGitCommitHash().trim().startsWith('fatal:');
+const isGitInstalled = git('--help').startsWith('usage:');
+const isGitProject = !getGitCommitHash().startsWith('fatal:');
 
 // used by custom json/yaml filters
 // converts twig internal 'Map' types to plain object

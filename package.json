@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "example-site",
+  "version": "1.0.0",
+  "description": "This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run generate && npm run copy:public",
+    "watch": "chokidar \"public/**\" \"**/*.md\" \"**/*.yaml\" \"**/*.js\" \"**/*.twig\" -c \"npm run build\"",
+    "generate": "node generate.js",
+    "copy:public": "copyfiles --up 1 \"public/**/*\" dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staticpagesjs/example-site-js.git"
+  },
+  "author": "@static-pages",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staticpagesjs/example-site-js/issues"
+  },
+  "homepage": "https://github.com/staticpagesjs/example-site-js#readme",
+  "dependencies": {
+    "@static-pages/core": "^3.0.1",
+    "@static-pages/markdown-reader": "^1.1.1",
+    "@static-pages/twig-writer": "^3.0.1",
+    "chokidar": "^3.5.3",
+    "chokidar-cli": "^3.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "overrides": {
+    "merge": "^2.0.0"
+  }
+}

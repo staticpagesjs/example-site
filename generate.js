@@ -77,7 +77,6 @@ staticPages({
 
 		// generate some breadcrumbs
 		d.breadcrumbs = ['Home', ...urlFromContext(d).split('/')];
-		console.log(d.breadcrumbs);
 		// replace filename (last item) with title
 		d.breadcrumbs.splice(-1, 1, d.title || d.header.basename);
 

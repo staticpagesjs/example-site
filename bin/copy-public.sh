@@ -1,3 +1,3 @@
 #!/bin/sh
 
-copyfiles -u1 public/**/* build
+copyfiles -u1 public/**/* dist

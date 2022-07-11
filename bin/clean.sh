@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rimraf build/
+rimraf dist/

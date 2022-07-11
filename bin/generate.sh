@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node build.js
+node generate.js

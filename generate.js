@@ -12,6 +12,8 @@
 //   8. provide basic translations with a 'T()' function that returns the
 //      language specific messages from the messages directory
 
+const startTime = new Date();
+
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
@@ -68,7 +70,7 @@ for (const page of pages) {
 staticPages({
 	from: pages,
 	controller: d => {
-		console.log('rendering', d?.header?.path);
+		console.log('Render', d?.header?.path);
 
 		// generate some breadcrumbs
 		d.breadcrumbs = ['Home', ...urlFromContext(d).split('/')];
@@ -109,7 +111,9 @@ staticPages({
 			],
 		},
 	}),
-}).catch(err => {
-	console.error(err?.message ?? err);
-	process.exit(1);
-});
+}).then(
+	() => console.log('Total build time ' + (new Date() - startTime) / 1000 + ' seconds'),
+	err => {
+		console.error(err?.message ?? err);
+		process.exit(1);
+	});

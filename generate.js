@@ -93,8 +93,7 @@ staticPages({
 		},
 		functions: {
 			getBase: [ // USAGE: {{ getBase() }}
-				context => path
-					.relative(path.dirname(urlFromContext(context)), '.')
+				context => path.relative(path.dirname(urlFromContext(context)), '.')
 					.replace(/\\/g, '/'),
 				{ needs_context: true }
 			],

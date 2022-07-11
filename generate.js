@@ -54,7 +54,7 @@ const urlFromContext = context => {
 
 // usually this should be at the 'from' section of the config
 // we moved it here to pre-process navigation data before the rendering
-const pages = [...markdownReader({})]; // [...x] converts iterable to array
+const pages = [...markdownReader()]; // [...x] converts iterable to array
 
 // pre-process navigation data
 const navigation = [];

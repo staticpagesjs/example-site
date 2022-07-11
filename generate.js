@@ -50,7 +50,10 @@ const replacer = (key, value) => {
 const urlFromContext = context => {
 	const page = replacer(null, context); // converts twig context to plain object using the json/yaml replacer
 	return page?.url?.concat?.('.html')
-		?? page?.header?.path?.replace?.(/\.[^.]+$/g, '.html')
+		?? page?.header?.path
+			?.replace?.(/\\/g, '/')
+			.substring(0, page.header.path.length - path.extname(page.header.path).length)
+			.concat('.html')
 		?? ''; // fallback to empty string
 };
 
@@ -74,6 +77,7 @@ staticPages({
 
 		// generate some breadcrumbs
 		d.breadcrumbs = ['Home', ...urlFromContext(d).split('/')];
+		console.log(d.breadcrumbs);
 		// replace filename (last item) with title
 		d.breadcrumbs.splice(-1, 1, d.title || d.header.basename);
 

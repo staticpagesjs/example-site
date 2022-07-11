@@ -72,8 +72,8 @@ staticPages({
 
 		// generate some breadcrumbs
 		d.breadcrumbs = ['Home', ...urlFromContext(d).split('/')];
-		d.breadcrumbs.pop(); // remove file name
-		d.breadcrumbs.push(d.title || d.header.basename); // add title
+		// replace filename (last item) with title
+		d.breadcrumbs.splice(-1, 1, d.title || d.header.basename);
 
 		return d;
 	},

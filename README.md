@@ -1,20 +1,16 @@
-# StaticPages JS sample repository
+# StaticPages example repository
 
 This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.
 
 ## Directory structure
 
-- `bin` various scripts for common tasks using the `staticpages/cli` docker image.
-- `dist` contains the output HTML pages.
-- `pages` contains the source materials for the HTML pages.
-- `views` is where template files resides.
-- `messages` holds the i18n translation bags.
-- `public` groups all the assets and static files of the page.
-- `generate.js` is the entrypoing of the static site generation task.
+- `messages` contains the i18n translation bags.
+- `pages` contains the source materials.
+- `public` contains the output HTML pages.
+- `scripts` contains the `build`, `watch` etc. lifecycle scripts.
+- `views` is where template files are loaded from.
+- `static` groups all the static assets which are copied at build time to output.
 
 ## Building the samples
 
-1. If you have docker installed, you can exec `./bin/docker-build`.
-   This will download the `staticpages/cli` image with all required npm packages preinstalled.
-
-2. Or alternatively run `npm install` then `npm run build`.
+Run `npm install` then `npm run build`.

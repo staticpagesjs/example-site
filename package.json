@@ -4,31 +4,26 @@
   "version": "1.0.0",
   "description": "This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf public",
     "build": "npm run generate && npm run copy:public",
-    "watch": "chokidar \"public/**\" \"**/*.md\" \"**/*.yaml\" \"**/*.js\" \"**/*.twig\" -c \"npm run build\"",
-    "generate": "node generate.js",
-    "copy:public": "copyfiles --up 1 \"public/**/*\" dist"
+    "watch": "chokidar \"static/**\" \"scripts/**/*.js\" \"pages/**/*.md\" \"messages/**/*.yaml\" \"views/**/*.twig\" -c \"npm run build\"",
+    "generate": "node scripts/staticgen.js",
+    "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/staticpagesjs/example-site-js.git"
+  "dependencies": {
+    "@static-pages/core": "^7.0.0-alpha.4",
+    "@static-pages/twig": "^2.0.0-alpha.0",
+    "@types/node": "^20.10.5",
+    "chokidar": "^3.5.3",
+    "chokidar-cli": "^3.0.0",
+    "copyfiles": "^2.4.1",
+    "yaml": "^2.3.4"
   },
   "author": "@static-pages",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/staticpagesjs/example-site-js/issues"
-  },
-  "homepage": "https://github.com/staticpagesjs/example-site-js#readme",
-  "dependencies": {
-    "@static-pages/core": "^3.0.1",
-    "@static-pages/markdown-reader": "^1.1.1",
-    "@static-pages/twig-writer": "^3.0.1",
-    "chokidar": "^3.5.3",
-    "chokidar-cli": "^3.0.0",
-    "js-yaml": "^4.1.0"
-  },
-  "overrides": {
-    "merge": "^2.0.0"
+  "homepage": "https://staticpagesjs.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staticpagesjs/example-site-js.git"
   }
 }

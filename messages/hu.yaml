@@ -1,8 +1,28 @@
 site:
-  title: StaticPagesJS mintaoldalak
+  title: StaticPagesJS bemutató oldal
+  generator:
+    name: StaticPagesJS
+    url: https://staticpagesjs.github.io/
 
-sidebar:
-  index: Oldalak listája
+nav:
+  title: Oldalak listája
+  items:
+    - name: Kezdőlap
+      url: /index
+    - name: 'Mintoldal: Körte'
+      url: /pear
+    - name: 'Mintoldal: Cukkini'
+      url: /zucchini
+    - name: Oldal almappában
+      url: /folderB/pageB
+    - name: Más URL-re leképezett oldal
+      url: /folderC/pageC
+    - name: 'Fordítási teszt: Francia'
+      url: /trans/french
+    - name: 'Fordítási teszt: Német'
+      url: /trans/german
+    - name: 'Fordítási teszt: Magyar'
+      url: /trans/hungarian
 
 breadcrumbs:
   home: Nyitólap

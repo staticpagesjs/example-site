@@ -1,8 +1,28 @@
 site:
-  title: StaticPagesJS Exemple de site
+  title: Site de démonstration StaticPagesJS
+  generator:
+    name: StaticPagesJS
+    url: https://staticpagesjs.github.io/
 
-sidebar:
-  index: Liste des pages
+nav:
+  title: Liste des pages
+  items:
+    - name: Page d'accueil
+      url: /index
+    - name: 'Page exemple : Poire'
+      url: /pear
+    - name: 'Page exemple : Courgette'
+      url: /zucchini
+    - name: Page dans sous-dossier
+      url: /folderB/pageB
+    - name: Page mappée à une URL différente
+      url: /folderC/pageC
+    - name: 'Test de traduction : Français'
+      url: /trans/french
+    - name: 'Test de traduction : Allemand'
+      url: /trans/german
+    - name: 'Test de traduction : Hongrois'
+      url: /trans/hungarian
 
 breadcrumbs:
   home: Page d'accueil

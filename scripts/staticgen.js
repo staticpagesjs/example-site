@@ -62,10 +62,10 @@ staticPages({
 			functions: {
 				relative({ context }, url) {
 					if (url.startsWith('/')) {
-						const { join, relative, dirname } = path.posix;
+						const { join, relative, dirname, basename } = path.posix;
 						const selfUrl = join('/', context.get('url'));
-						const pathToRoot = relative(dirname(selfUrl), '/');
-						return join(pathToRoot, url);
+						const relativeBase = relative(dirname(selfUrl), dirname(url));
+						return join(relativeBase, basename(url));
 					}
 					return url;
 				},

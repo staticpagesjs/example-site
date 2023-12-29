@@ -9,15 +9,14 @@ const startTime = new Date();
 
 // this will read language specific values
 const messages = {};
-const bags = fs.readdirSync('messages', { recursive: true, withFileTypes: false, encoding: 'utf8' });
+const bags = fs.readdirSync('messages', { recursive: false, withFileTypes: false, encoding: 'utf8' });
 for (const bag of bags) {
-	const stat = fs.statSync(path.join('messages', bag));
-	if (stat.isFile() && bag.endsWith('.yaml')) {
-		const lang = '.' === path.dirname(bag) // when not in subdirectory
-			? bag.replace(/\.[^.]+$/, '') // use filename as language id
-			: bag.replace(/^([^\\|\/]+)(?:\\|\/).*/, '') // use first subdir name
-
-		messages[lang] = YAML.parse(fs.readFileSync(`messages/${bag}`, 'utf-8'));
+	const extname = path.extname(bag);
+	const bagPath = path.join('messages', bag);
+	const stat = fs.statSync(bagPath);
+	if (stat.isFile() && extname === '.yaml') {
+		const lang = path.basename(bag, extname);
+		messages[lang] = YAML.parse(fs.readFileSync(bagPath, 'utf-8'));
 	}
 }
 
@@ -77,4 +76,5 @@ staticPages({
 	err => {
 		console.error(err?.message ?? err);
 		process.exit(1);
-	});
+	}
+);

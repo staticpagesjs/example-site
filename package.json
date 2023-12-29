@@ -11,7 +11,7 @@
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
   "dependencies": {
-    "@static-pages/core": "^7.0.0-alpha.4",
+    "@static-pages/core": "^7.0.0-alpha.5",
     "@static-pages/twig": "^2.0.0-alpha.0",
     "@types/node": "^20.10.5",
     "chokidar": "^3.5.3",

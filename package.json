@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "name": "example-site",
   "version": "1.0.0",
   "description": "This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.",
@@ -11,9 +12,8 @@
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
   "dependencies": {
-    "@static-pages/core": "^7.0.0-alpha.5",
+    "@static-pages/starter": "^0.0.4",
     "@static-pages/twig": "^2.0.0-alpha.0",
-    "@types/node": "^20.10.5",
     "chokidar": "^3.5.3",
     "chokidar-cli": "^3.0.0",
     "copyfiles": "^2.4.1",

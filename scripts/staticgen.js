@@ -25,7 +25,7 @@ staticPages({
 	from: {
 		cwd: 'pages',
 	},
-	controller: doc => {
+	controller(doc) {
 		const { title, url, lang } = doc;
 		console.log('Generate', url);
 

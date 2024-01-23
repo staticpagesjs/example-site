@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }} – {{ _t.site.title }}</title>
-	<link rel="stylesheet" href="{{ relative('/assets/main.css') }}">
+	<link rel="stylesheet" href="{{ url('/assets/main.css') }}">
 </head>
 <body>
 	<header>
@@ -18,7 +18,7 @@
 				<h1>{{ _t.nav.title }}</h1>
 				<ul>
 				{% for item in _t.nav.items %}
-					<li><a href="{{ relative(item.url) }}.html">{{ item.name }}</a></li>
+					<li><a href="{{ url(item.url) }}.html">{{ item.name }}</a></li>
 				{% endfor %}
 				</ul>
 			</nav>

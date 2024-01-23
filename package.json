@@ -7,12 +7,12 @@
   "scripts": {
     "clean": "rimraf public",
     "build": "npm run generate && npm run copy:public",
-    "watch": "chokidar \"static/**\" \"scripts/**/*.js\" \"pages/**/*.md\" \"messages/**/*.yaml\" \"views/**/*.twig\" -c \"npm run build\"",
+    "watch": "chokidar static scripts pages messages views -c \"npm run build\"",
     "generate": "node scripts/staticgen.js",
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
   "dependencies": {
-    "@static-pages/starter": "^0.0.4",
+    "@static-pages/starter": "^0.0.7",
     "@static-pages/twig": "^2.0.0-alpha.0",
     "chokidar": "^3.5.3",
     "chokidar-cli": "^3.0.0",

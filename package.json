@@ -6,9 +6,9 @@
   "description": "This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.",
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('public',{recursive:true,force:true})\"",
-    "build": "npm run generate && npm run copy:public",
+    "build": "npm run staticgen && npm run copy:public",
     "watch": "chokidar static scripts pages messages views -c \"npm run build\"",
-    "generate": "node scripts/staticgen.js",
+    "staticgen": "node scripts/staticgen.js",
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
   "dependencies": {

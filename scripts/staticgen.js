@@ -9,6 +9,7 @@ const startTime = new Date();
 const messages = {};
 for await (const bag of read({ cwd: 'messages' })) {
 	// .url inherits the filename if property not present
+	// it is how read()'s default parse() function works
 	messages[bag.url] = bag;
 	delete bag.url;
 }

@@ -6,8 +6,9 @@
   "description": "This project is a quick demo setup to present some of the basic concepts behind the [StaticPages](https://staticpagesjs.github.io) project.",
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('public',{recursive:true,force:true})\"",
-    "build": "npm run staticgen && npm run copy:public",
+    "build": "npm run staticgen && npm run copy:public && npm run beautify",
     "watch": "chokidar static scripts pages messages views -c \"npm run build\"",
+    "beautify": "js-beautify --indent-with-tabs --no-preserve-newlines --extra_liners \"\" --file \"public/**/*.html\"",
     "staticgen": "node scripts/staticgen.js",
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"
   },
@@ -16,7 +17,8 @@
     "@static-pages/twig": "^2.0.0-alpha.0",
     "chokidar": "^3.5.3",
     "chokidar-cli": "^3.0.0",
-    "copyfiles": "^2.4.1"
+    "copyfiles": "^2.4.1",
+    "js-beautify": "^1.14.11"
   },
   "author": "@static-pages",
   "license": "ISC",

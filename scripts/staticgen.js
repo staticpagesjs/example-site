@@ -1,17 +1,11 @@
-import { staticPages, read } from '@static-pages/starter/node';
-import { twig, raw } from '@static-pages/twig';
-import posixPath from 'node:path/posix';
+import { staticPages } from '@static-pages/starter/node';
+import { twig } from '@static-pages/twig';
+import { url, html_url, json, readDirContents } from './cookbook.js';
 
 const startTime = new Date();
 
 // translations (i18n) bags
-const messages = {};
-for await (const bag of read({ cwd: 'messages' })) {
-	// .url inherits the filename if property not present
-	// it is how read()'s default parse() function works
-	messages[bag.url] = bag;
-	delete bag.url;
-}
+const messages = await readDirContents('messages');
 
 staticPages({
 	from: {
@@ -37,29 +31,11 @@ staticPages({
 		render: twig({
 			viewsDir: 'views',
 			filters: {
-				json(_context, subject) {
-					return raw(JSON.stringify(
-						subject,
-						(key, value) => {
-							if (!Array.isArray(value) && typeof value?.entries === 'function') {
-								return Object.fromEntries(value.entries());
-							}
-							return value;
-						},
-						'\t'
-					));
-				},
+				json,
+				html_url,
 			},
 			functions: {
-				url({ context }, url) {
-					if (url.startsWith('/')) {
-						const { join, relative, dirname, basename } = posixPath;
-						const selfUrl = join('/', context.get('url'));
-						const relativeBase = relative(dirname(selfUrl), dirname(url));
-						return join(relativeBase, basename(url));
-					}
-					return url;
-				},
+				url,
 			},
 		}),
 	}

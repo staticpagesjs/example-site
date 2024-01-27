@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('public',{recursive:true,force:true})\"",
     "build": "npm run staticgen && npm run copy:public && npm run beautify",
-    "watch": "chokidar static scripts pages messages views -c \"npm run build\"",
+    "watch": "chokidar static scripts pages messages views -c \"npm run staticgen && npm run copy:public\"",
     "beautify": "js-beautify --indent-with-tabs --no-preserve-newlines --extra_liners \"\" --file \"public/**/*.html\"",
     "staticgen": "node scripts/staticgen.js",
     "copy:public": "copyfiles --up 1 \"static/**/*\" public"

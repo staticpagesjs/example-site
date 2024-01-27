@@ -1,6 +1,6 @@
 import { staticPages } from '@static-pages/starter/node';
 import { twig } from '@static-pages/twig';
-import { url, html_url, json, readDirContents } from './cookbook.js';
+import { url, relative_html_urls, json, readDirContents } from './cookbook.js';
 
 const startTime = new Date();
 
@@ -32,7 +32,7 @@ staticPages({
 			viewsDir: 'views',
 			filters: {
 				json,
-				html_url,
+				relative_html_urls,
 			},
 			functions: {
 				url,

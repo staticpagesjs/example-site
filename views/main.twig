@@ -8,5 +8,5 @@
 		{%- if not loop.last %}<span class="bc-sep"> &gt; </span>{% endif -%}
 	{%- endfor -%}
 	</div>
-	{{ content|markdown|html_url }}
+	{{ content|markdown|relative_html_urls }}
 {% endblock content %}

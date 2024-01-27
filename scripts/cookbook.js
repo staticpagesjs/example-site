@@ -32,26 +32,10 @@ export function url({ context }, url) {
 }
 
 /**
- * Pretty print JSON
- */
-export function json(_context, subject) {
-	return raw(JSON.stringify(
-		subject,
-		(key, value) => {
-			if (!Array.isArray(value) && typeof value?.entries === 'function') {
-				return Object.fromEntries(value.entries());
-			}
-			return value;
-		},
-		'\t'
-	));
-}
-
-/**
  * Converts `/absolute/url` to `../relative/url` based on the page url in a complete HTML text
  * Urls extracted from HTML attributes like <img src="...">
  */
-export function html_url({ context }, html) {
+export function relative_html_urls({ context }, html) {
 	const { join, relative, dirname, basename } = posixPath;
 	const selfUrl = join('/', context.get('url'));
 	const rewriteUrl = (url) => {
@@ -73,4 +57,20 @@ export function html_url({ context }, html) {
 				return prefix + result + suffix;
 			}
 		));
+}
+
+/**
+ * Pretty print JSON
+ */
+export function json(_context, subject) {
+	return raw(JSON.stringify(
+		subject,
+		(key, value) => {
+			if (!Array.isArray(value) && typeof value?.entries === 'function') {
+				return Object.fromEntries(value.entries());
+			}
+			return value;
+		},
+		'\t'
+	));
 }

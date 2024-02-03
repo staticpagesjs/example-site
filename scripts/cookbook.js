@@ -3,8 +3,9 @@ import { raw } from '@static-pages/twig';
 import posixPath from 'node:path/posix';
 
 /**
- * Loads files from a directory.
+ * Loads files from a directory into an object.
  * Filenames becomes object keys.
+ * File content is parsed according to the file extension (json,yaml,md).
  */
 export async function readDirContents(dir) {
 	const root = {};
